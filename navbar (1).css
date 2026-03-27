@@ -1,0 +1,279 @@
+/* ================================================
+   navbar.css — בית הכנסת הגדול חדרה
+   ================================================ */
+
+/* --- CSS Variables --- */
+:root {
+  --color-nav-bg:        #2a5955;
+  --color-border-gold:   rgba(180, 140, 60, 0.3);
+  --color-text:          rgba(255, 255, 255, 0.88);
+  --color-text-active:   #f5d88a;
+  --color-separator:     rgba(255, 255, 255, 0.25);
+  --color-hover-bg:      rgba(255, 255, 255, 0.06);
+
+  --color-btn-from:      #6b4510;
+  --color-btn-mid:       #9a6a20;
+  --color-btn-center:    #c09040;
+  --color-btn-text:      #f5ead8;
+  --color-btn-border:    rgba(180, 130, 60, 0.6);
+
+  --color-logo-border:   rgba(180, 140, 60, 0.35);
+
+  --nav-height:          58px;
+  --nav-padding:         0 120px;
+  --logo-size:           150px;
+  --logo-img-size:       120px;
+
+  --font-main: 'Heebo', sans-serif;
+  --radius-btn: 10px;
+  --radius-logo: 95px;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-main);
+  background: #1a1a2e;
+  min-height: 100vh;
+}
+
+/* ================================================
+   NAVBAR
+   ================================================ */
+.navbar {
+  background: var(--color-nav-bg);
+  border-bottom: 2px solid var(--color-border-gold);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  padding: var(--nav-padding);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ================================================
+   NAV LINKS
+   ================================================ */
+.navbar__links {
+  order: 2;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar__links li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__links li + li::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 18px;
+  background: var(--color-separator);
+  margin: 0 2px;
+}
+
+.navbar__links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.navbar__links a:hover  { color: var(--color-text-active); background: var(--color-hover-bg); }
+.navbar__links a.active { color: var(--color-text-active); }
+
+/* ================================================
+   DONATE BUTTON
+   ================================================ */
+.navbar__donate {
+  order: 3;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  background: linear-gradient(90deg,
+    var(--color-btn-from)   0%,
+    var(--color-btn-mid)    30%,
+    var(--color-btn-center) 50%,
+    var(--color-btn-mid)    70%,
+    var(--color-btn-from)   100%
+  );
+  color: var(--color-btn-text);
+  border: 1px solid var(--color-btn-border);
+  border-radius: var(--radius-btn);
+  padding: 8px 14px 8px 18px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow:
+    0 0 8px rgba(160, 110, 20, 0.35),
+    0 2px 6px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255, 235, 160, 0.25),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  transition: all 0.25s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navbar__donate:hover {
+  box-shadow:
+    0 0 12px rgba(160, 110, 20, 0.5),
+    0 3px 8px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255, 235, 160, 0.3),
+    inset 0 -1px 0 rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.navbar__donate svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ================================================
+   LOGO — U SHAPE
+   ================================================ */
+.navbar__logo {
+  order: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  background: white;
+  border-radius: 0 0 var(--radius-logo) var(--radius-logo);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.25),
+    inset 0 -2px 0 rgba(180,140,60,0.4);
+  padding: 0 10px 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+  position: relative;
+  top: 46px;
+  border: 1.5px solid var(--color-logo-border);
+  border-top: none;
+  transition: box-shadow 0.2s;
+}
+
+.navbar__logo:hover {
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.35),
+    inset 0 -2px 0 rgba(200,150,40,0.5);
+}
+
+.navbar__logo-img {
+  width: var(--logo-img-size);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ================================================
+   HAMBURGER (mobile only)
+   ================================================ */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  order: 2;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ================================================
+   MOBILE MENU DRAWER
+   ================================================ */
+.navbar__mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--color-nav-bg);
+  border-top: 1px solid var(--color-border-gold);
+  position: absolute;
+  top: var(--nav-height);
+  right: 0;
+  left: 0;
+  z-index: 100;
+  padding: 12px 0;
+}
+
+.navbar__mobile-menu.open { display: flex; }
+
+.navbar__mobile-menu a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s, background 0.2s;
+}
+
+.navbar__mobile-menu a:hover  { color: var(--color-text-active); background: var(--color-hover-bg); }
+.navbar__mobile-menu a.active { color: var(--color-text-active); }
+
+.navbar__mobile-menu .navbar__donate-mobile {
+  margin: 12px 24px 4px;
+  text-align: center;
+  border-bottom: none;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 900px) {
+  :root {
+    --nav-padding: 0 16px;
+    --logo-size:   100px;
+    --logo-img-size: 80px;
+    --radius-logo: 60px;
+  }
+  .navbar { height: var(--nav-height); }
+  .navbar__logo { top: 28px; }
+}
+
+@media (max-width: 768px) {
+  .navbar__links   { display: none; }
+  .navbar__donate  { display: none; }
+  .navbar__hamburger { display: flex; }
+  .navbar__logo {
+    width: 80px;
+    height: 80px;
+    top: 22px;
+    border-radius: 0 0 48px 48px;
+  }
+  .navbar__logo-img { width: 64px; }
+}
