@@ -1,0 +1,186 @@
+/* ================================================
+   sections.css — גוף האתר
+   בית הכנסת הגדול חדרה
+   ================================================ */
+
+:root {
+  --gold:         #b8892a;
+  --gold-light:   #d4aa4a;
+  --gold-dark:    #8a6520;
+  --cream:        #f5f0e8;
+  --cream-dark:   #ede5d4;
+  --cream-darker: #d4c8a8;
+  --white:        #ffffff;
+  --text-dark:    #2a1f0e;
+  --text-mid:     #4a3520;
+}
+
+/* ── ORNAMENT ── */
+.ornament {
+  text-align: center;
+  color: var(--gold);
+  letter-spacing: 8px;
+  font-size: 1rem;
+  margin: 40px 0 24px;
+}
+
+/* ── TOP GRID ── */
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.2fr;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto 16px;
+  padding: 0 16px;
+}
+
+.card {
+  background: var(--cream);
+  border-radius: 14px;
+  border: 1.5px solid var(--cream-darker);
+  padding: 20px;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease both;
+}
+
+.top-grid .card:nth-child(2) { animation-delay: .07s; }
+.top-grid .card:nth-child(3) { animation-delay: .14s; }
+.bottom-grid .card:nth-child(1) { animation-delay: .21s; }
+.bottom-grid .card:nth-child(2) { animation-delay: .28s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.moreset-img { width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 8px; margin-bottom: 12px; }
+
+.moreset-body p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 14px; }
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gold-light);
+}
+
+.btn-gold {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s, box-shadow .2s;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  box-shadow: 0 4px 12px rgba(180,130,40,0.3);
+}
+
+/* ── SHIURIM ── */
+.shiurim-card .section-title { text-align: center; font-size: 1.55rem; margin-bottom: 14px; }
+.shiurim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.shiur-item {
+  background: var(--cream-dark);
+  border: 1px solid var(--cream-darker);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.shiur-item.featured { background: var(--white); border-color: var(--gold-light); }
+
+.shiur-icon {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--cream-darker); border: 2px solid var(--gold-light);
+  min-width: 38px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+
+.shiur-title { font-size: 0.82rem; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; }
+.shiur-meta  { font-size: 0.75rem; color: var(--text-mid); line-height: 1.4; }
+
+/* ── ZMANIM ── */
+.zmanim-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c8a86a, transparent);
+  margin: 12px 0;
+}
+
+.zmanim-card .section-title {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.zmanim-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+.zmanim-table th {
+  text-align: center; padding: 6px;
+  border-bottom: 2px solid var(--gold-light); font-size: 0.8rem;
+}
+.zmanim-table td {
+  text-align: center; padding: 5px 6px; color: var(--text-mid);
+  border-bottom: 1px solid var(--cream-darker); font-size: 0.78rem;
+}
+.zmanim-table tr:nth-child(even) td { background: rgba(212,176,122,.12); }
+
+/* ── BOTTOM GRID ── */
+.bottom-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; max-width: 1100px; margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+.donation-card, .contact-card {
+  position: relative; overflow: hidden; min-height: 200px;
+}
+
+.card-bg-overlay {
+  background: rgba(245,240,232,0.55);
+}
+
+.donation-card .section-title,
+.contact-card .section-title {
+  color: var(--text-dark);
+}
+
+.donation-card .section-title { font-size: 1.45rem; margin-bottom: 8px; }
+
+.donation-desc {
+  font-size: 0.8rem; color: var(--text-mid);
+  text-align: center; max-width: 320px;
+}
+
+.btn-gold-full {
+  width: 100%; display: block;
+}
+
+.btn-wrapper { width: 100%; display: flex; justify-content: center; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .top-grid { grid-template-columns: 1fr 1fr; }
+  .zmanim-card { grid-column: span 2; }
+  .shiurim-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .top-grid, .bottom-grid { grid-template-columns: 1fr; }
+  .zmanim-card { grid-column: auto; }
+  .shiurim-grid { grid-template-columns: 1fr; }
+}
